@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammed Erziku Yenus - Enhanced CV Form</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --success-color: #27ae60;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        header .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 900px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .cv-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cv-section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .form-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .skill-item {
+            background-color: var(--light-color);
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            border: 4px solid var(--light-color);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .required {
+            color: var(--accent-color);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .reference-card {
+            background-color: var(--light-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .reference-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Muhammed Erziku Yenus</h1>
+            <p>Biomedical Engineer & Researcher</p>
+            <div class="contact-info">
+                <div>📞 +251910154940</div>
+                <div>📧 muhammederziku9@gmail.com</div>
+                <div>📍 Addis Ababa, Ethiopia</div>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <div class="left-column">
+                <section class="cv-section">
+                    <h2>Education</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">February 2021</div>
+                            <h3>MSc in Biomedical Instrumentation and Imaging</h3>
+                            <p>Addis Ababa University</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">June 2016</div>
+                            <h3>BSc in Biomedical Engineering</h3>
+                            <p>Jimma University</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="cv-section">
+                    <h2>Honours and Awards</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023/24</div>
+                            <h3>Seed Grant - Grand Challenges Ethiopia</h3>
+                            <p>Armauer Hansen Research Institute (AHRI)</p>
+                            <p>Project: "Early Detection of Kidney Disease Using Human Breath"</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2022</div>
+                            <h3>Jim Leech Mastercard Foundation Fellowship</h3>
+                            <p>Entrepreneurship</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2019</div>
+                            <h3>Visiting Research Student</h3>
+                            <p>11-month master's credit-seeking mobility at Cairo University</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="cv-section">
+                    <h2>Skills & Expertise</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">Biomedical Engineering</div>
+                        <div class="skill-item">Design</div>
+                        <div class="skill-item">Simulation</div>
+                        <div class="skill-item">Maintenance</div>
+                        <div class="skill-item">Bioinformatics</div>
+                        <div class="skill-item">Data Analysis</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">MATLAB</div>
+                        <div class="skill-item">Research</div>
+                        <div class="skill-item">Innovation</div>
+                        <div class="skill-item">Project Management</div>
+                        <div class="skill-item">Collaboration</div>
+                    </div>
+                </section>
+                
+                <section class="cv-section">
+                    <h2>References</h2>
+                    <div class="reference-card">
+                        <h3>Dr. Dawit Assefa Haile</h3>
+                        <p>Department of Biomedical Engineering</p>
+                        <p>Addis Ababa University</p>
+                        <p>📞 +251922759688</p>
+                        <p>📧 dawit.assefa@aau.edu.et</p>
+                        <p>Relationship: Advisor</p>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="right-column">
+                <section class="form-section">
+                    <h2>Contact Form</h2>
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required autocomplete="name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required autocomplete="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" autocomplete="tel">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject <span class="required">*</span></label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="collaboration">Research Collaboration</option>
+                                <option value="consultation">Biomedical Consultation</option>
+                                <option value="speaking">Speaking Engagement</option>
+                                <option value="employment">Employment Opportunity</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Enter your message" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cv">Upload Your CV (PDF only)</label>
+                            <input type="file" id="cv" name="cv" accept=".pdf" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subscribe">
+                                <input type="checkbox" id="subscribe" name="subscribe" checked>
+                                Subscribe to newsletter for updates on biomedical research
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-block">Send Message</button>
+                    </form>
+                </section>
+                
+                <section class="form-section">
+                    <h2>Research Interest Survey</h2>
+                    <form id="researchForm">
+                        <div class="form-group">
+                            <label>Which areas of biomedical engineering interest you most? (Select all that apply)</label>
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="interests" value="imaging">
+                                    Medical Imaging
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="interests" value="instrumentation">
+                                    Biomedical Instrumentation
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="interests" value="biomaterials">
+                                    Biomaterials
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="interests" value="bioinformatics">
+                                    Bioinformatics
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="interests" value="rehabilitation">
+                                    Rehabilitation Engineering
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="expertise">Your level of expertise:</label>
+                            <select id="expertise" name="expertise" class="form-control">
+                                <option value="student">Student</option>
+                                <option value="entry">Entry Level</option>
+                                <option value="mid">Mid Career</option>
+                                <option value="senior">Senior Professional</option>
+                                <option value="academic">Academic/Researcher</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="collaboration">Interest in collaboration:</label>
+                            <input type="range" id="collaboration" name="collaboration" min="0" max="10" value="5" class="form-control">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Not interested</span>
+                                <span>Very interested</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="visit-date">When would you like to visit for a discussion?</label>
+                            <input type="date" id="visit-date" name="visit-date" class="form-control">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-block">Submit Survey</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 Muhammed Erziku Yenus.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Form validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let isValid = true;
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const subject = document.getElementById('subject');
+            const message = document.getElementById('message');
+            
+            // Reset previous error states
+            [name, email, subject, message].forEach(field => {
+                field.style.borderColor = '#ddd';
+            });
+            
+            // Validate name
+            if (!name.value.trim()) {
+                name.style.borderColor = 'red';
+                isValid = false;
+            }
+            
+            // Validate email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email.value)) {
+                email.style.borderColor = 'red';
+                isValid = false;
+            }
+            
+            // Validate subject
+            if (!subject.value) {
+                subject.style.borderColor = 'red';
+                isValid = false;
+            }
+            
+            // Validate message
+            if (!message.value.trim()) {
+                message.style.borderColor = 'red';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            } else {
+                alert('Please fill in all required fields correctly.');
+            }
+        });
+        
+        // Research form submission
+        document.getElementById('researchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for completing the research interest survey!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
